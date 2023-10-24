@@ -5,7 +5,7 @@ const product = db.define(
   "product",
   {
     product_id: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.STRING(50),
       primaryKey: true,
       allowNull: false,
       unique: true,

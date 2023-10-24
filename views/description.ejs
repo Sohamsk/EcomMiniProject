@@ -18,12 +18,15 @@
 
     <section class="product-description">
         <div class="product">
-            <img src="shoe1.jpg" alt="Shoe 1" length="400px" width="500px">
-            <h2>Shoe 1</h2>
-            <p>Price: $50.00</p>
-            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac justo vel neque tincidunt
-                euismod at non odio. Proin eu nulla non nunc sodales hendrerit. Fusce a libero vitae purus ultrices
-                accumsan.</p>
+            <img src=<%=`images\\${product.product_id}.jpg` %> alt="Shoe 1" length="400px" width="500px">
+            <h2>
+                <%= product.product_name %>
+            </h2>
+            <p>&#x20b9; <%= product.product_price %>
+            </p>
+            <p>Description: <%= product.product_desc %>
+            </p>
+            <a href=<%=`/buy/${product.product_id}` %>><button>Buy</button></a>
         </div>
     </section>
 

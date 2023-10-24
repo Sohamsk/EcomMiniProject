@@ -14,15 +14,15 @@
     <section class="product-list">
         <% products.forEach((product, index)=> { %>
             <div class="product">
-                <a href=<%=`\\shoe${product.product_id}` %>>
-                    <img src=<%=`images/shoe${product.product_id}.jpg` %> alt="Shoe 1" height="400px" width="500px"></a>
+                <a href=<%=`\\${product.product_id}` %>>
+                    <img src=<%=`images/${product.product_id}.jpg` %> alt=<%= product.product_id %> height="400px"
+                        width="500px"></a>
                 <h2>
                     <%= product.product_name %>
                 </h2>
                 <p>
                     ₹ <%= product.product_price %>
                 </p><br>
-                <!-- <button>Buy</button> -->
             </div>
             <% }) %>
                 <!-- Repeat this product block for the other 7 items
