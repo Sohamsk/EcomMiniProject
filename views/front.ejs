@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shoe Store</title>
+    <link rel="stylesheet" type="text/css" href="./css/front.css">
+</head>
+
+<body>
+    <header>
+        <h1>Shoe Store</h1>
+    </header>
+
+    <section class="product-list">
+        <% products.forEach((product, index)=> { %>
+            <div class="product">
+                <a href=<%=`\\shoe${product.product_id}` %>>
+                    <img src=<%=`images/shoe${product.product_id}.jpg` %> alt="Shoe 1" height="400px" width="500px"></a>
+                <h2>
+                    <%= product.product_name %>
+                </h2>
+                <p>
+                    ₹ <%= product.product_price %>
+                </p><br>
+                <!-- <button>Buy</button> -->
+            </div>
+            <% }) %>
+                <!-- Repeat this product block for the other 7 items
+        <div class="product">
+            <a href="#"><img src="shoe2.jpg" alt="Shoe 2" height="400px" width="600px"></a>
+            <h2>Adidas Mens Tivid R.rdy Shoes</h2>
+            <p>Price: 5799.00</p><br>
+            <button>Buy</button>
+        </div>
+
+        <div class="product">
+            <img src="shoe3.jpg" alt="Shoe 3" height="400px" width="500px">
+            <h2>Adidas Mens Entry Hiker 2 Shoes
+            </h2>
+            <p>Price: 8999.00</p><br>
+            <button>Buy</button>
+        </div>
+
+        <div class="product">
+            <img src="shoe4.jpg" alt="Shoe 4" height="400px" width="500px">
+            <h2>Adidas Men Ultraboost 22 Textile Running Shoes FTWWHT/FTWWHT/VIVRED | LMS01</h2>
+            <p>Price: 3599.00</p><br>
+            <button>Buy</button>
+        </div> -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Shoe Store</p>
+    </footer>
+</body>
+
+</html>
