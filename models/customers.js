@@ -1,17 +1,21 @@
 const { DataTypes } = require("sequelize");
 const db = require("./connection");
 
-const login = db.define(
-  "login",
+const customer = db.define(
+  "customer",
   {
-    email: {
+    customer_id: {
       type: DataTypes.STRING(100),
       primaryKey: true,
       allowNull: false,
       unique: true,
     },
-    password: {
-      type: DataTypes.STRING(72),
+    customer_name: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    customer_address: {
+      type: DataTypes.STRING(512),
       allowNull: false,
     },
   },
@@ -21,5 +25,5 @@ const login = db.define(
 );
 
 module.exports = {
-  login,
+  customer,
 };

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell Book</title>
+    <link rel="stylesheet" href="/css/form.css" />
+</head>
+
+<body class="p30">
+
+    <div class="container">
+        <form>
+            <h3 style="text-align:center">ORDER FORM for <%= product.product_name %>
+                    </h1>
+                    <p1>
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Enter Your Name " />
+                    </p1>
+
+                    <div>
+                        <br />
+                        <hr />
+                        <p3><label for="email">Email address:</label>
+                            <input type="email" name="email" id="email" placeholder="Enter MailId" />
+                        </p3>
+                        <br />
+                        <hr />
+                        <label for="address">Address:</label>
+                        <h4>
+                            <textarea name="Address" id="summary" cols="60" rows="20" required=""
+                                placeholder="Add your Address"></textarea>
+                        </h4>
+                    </div>
+                    <br />
+                    <hr />
+                    <input class="p680" type="submit" value=<%=` ₹${product.product_price}` %> data=<%=
+                        product.product_id %> />
+        </form>
+    </div>
+    <script src="/js/form.js"></script>
+</body>
+
+</html>
