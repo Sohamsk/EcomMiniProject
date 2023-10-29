@@ -1,12 +1,8 @@
-const express = require("express");
 const { product } = require("../models/products");
 const { customer } = require("../models/customers");
 const { order } = require("../models/orders");
 
-const router = express.Router();
-router.use(express.json());
-
-router.post("/:prod", async (req, res) => {
+async function placeOrder(req, res) {
   try {
     let dt = new Date();
     await customer.create({
@@ -23,16 +19,12 @@ router.post("/:prod", async (req, res) => {
     res.send({ status: 0 });
   } catch (error) {
     if ((error.name = "SequelizeUniqueConstraintError")) {
+      console.log(error);
       res.send({ status: 1, message: "only one order for one user" });
     }
   }
-});
+}
 
-router.get("/:prod", async (req, res) => {
-  const products = await product.findOne({
-    where: { product_id: req.params.prod },
-  });
-  res.render("form", { product: products });
-});
-
-module.exports = router;
+module.exports = {
+  placeOrder,
+};

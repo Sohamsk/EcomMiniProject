@@ -9,13 +9,15 @@
 <body>
     <header>
         <h1>Shoe Store</h1>
+        <a href="/login"><button>Login</button></a>
     </header>
 
     <section class="product-list">
         <% products.forEach((product, index)=> { %>
             <div class="product">
-                <a href=<%=`\\${product.product_id}` %>>
-                    <img src=<%=`images/${product.product_id}.jpg` %> alt=<%= product.product_id %> height="400px"
+                <a href=<%=`\\product\\${product.product_id}` %>>
+                    <img src=<%=`images\\products\\${product.product_id}.jpg` %> alt=<%= product.product_id %>
+                        height="400px"
                         width="500px"></a>
                 <h2>
                     <%= product.product_name %>
