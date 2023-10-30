@@ -1,5 +1,6 @@
 const express = require("express");
 const { product } = require("../models/products");
+const { isLoggedIn } = require("../middlewares/loggedIn");
 
 const router = express.Router();
 router.use(express.json());
@@ -8,7 +9,6 @@ router.get("/", async (req, res) => {
   const logged = req.user ? true : false;
   const prod = await product.findAll({});
   res.render("front", { products: prod, loggedin: logged });
-  console.log(req.session);
 });
 
 router.get("/register", (req, res) => {
@@ -19,7 +19,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/product/:prod", async (req, res) => {
+router.get("/product/:prod", isLoggedIn, async (req, res) => {
   const prod = await product.findOne({
     where: { product_id: req.params.prod },
   });
@@ -29,6 +29,10 @@ router.get("/product/:prod", async (req, res) => {
 // sending images in description page
 router.get("/product/images/:img", (req, res) => {
   res.redirect(`/images/products/${req.params.img}`);
+});
+
+router.get("/product/js/:js", (req, res) => {
+  res.redirect(`/js/buy.js`);
 });
 
 module.exports = router;

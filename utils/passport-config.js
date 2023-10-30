@@ -11,7 +11,6 @@ exports.initializePassport = (passport) => {
       },
       async (email, password, done) => {
         const us = await login.findByPk(email);
-        console.log(password, us.login_pwd);
         if (!us) return done(null, false);
         if (us.login_pwd !== password) return done(null, false);
 

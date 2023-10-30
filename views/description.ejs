@@ -23,13 +23,14 @@
             </p>
             <p>Description: <%= product.product_desc %>
             </p>
-            <a href=<%=`/buy/${product.product_id}` %>><button>Buy</button></a>
+            <button data-buy=<%= `${product.product_id}` %> id="buy">Buy</button></a>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2023 Shoe Store</p>
     </footer>
+    <script src="./js/buy.js"></script>
 </body>
 
 </html>
