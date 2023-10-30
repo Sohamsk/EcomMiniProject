@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sell Book</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/css/form.css" />
 </head>
 
@@ -36,8 +36,15 @@
                     </div>
                     <br />
                     <hr />
-                    <input class="p680" type="submit" value=<%=` ₹${product.product_price}` %> data=<%=
-                        product.product_id %> />
+                    <label for="password">Password:</label>
+                    <h4>
+                        <textarea name="Password" id="pwd" required="" placeholder="Write your password"></textarea>
+                        <h4>
+                            <textarea name="Password 2" required="" placeholder="reenter your password"></textarea>
+                        </h4>
+                        <br />
+                        <hr />
+                        <input class="p680" type="submit" value="register" />
         </form>
     </div>
     <script src="/js/form.js"></script>

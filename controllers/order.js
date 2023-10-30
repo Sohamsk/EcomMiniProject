@@ -1,27 +1,21 @@
 const { product } = require("../models/products");
-const { customer } = require("../models/customers");
 const { order } = require("../models/orders");
 
 async function placeOrder(req, res) {
   try {
-    let dt = new Date();
-    await customer.create({
-      customer_id: req.body.email,
-      customer_name: req.body.name,
-      customer_address: req.body.address,
-    });
-
+    const prod = await product.findByPk(req.params.prod);
+    if (!prod) {
+      throw error;
+    }
     await order.create({
-      product_id: req.params.prod,
-      customer_id: req.body.email,
+      product_id: prod.product_id,
+      customer_id: req.session.email,
       order_date: `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`,
     });
     res.send({ status: 0 });
   } catch (error) {
-    if ((error.name = "SequelizeUniqueConstraintError")) {
-      console.log(error);
-      res.send({ status: 1, message: "only one order for one user" });
-    }
+    console.log(error);
+    res.status(406).send({ message: "only one order for one user" });
   }
 }
 
