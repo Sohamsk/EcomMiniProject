@@ -5,13 +5,18 @@ const router = express.Router();
 router.use(express.json());
 
 router.get("/", async (req, res) => {
+  const logged = req.user ? true : false;
   const prod = await product.findAll({});
-  res.render("front", { products: prod });
+  res.render("front", { products: prod, loggedin: logged });
   console.log(req.session);
 });
 
-router.get("/success", (req, res) => {
-  res.send("<h1>Thank You</h1>");
+router.get("/register", (req, res) => {
+  res.render("form");
+});
+
+router.get("/login", (req, res) => {
+  res.render("login");
 });
 
 router.get("/product/:prod", async (req, res) => {

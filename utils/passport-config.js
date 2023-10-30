@@ -10,7 +10,8 @@ exports.initializePassport = (passport) => {
         passwordField: "password",
       },
       async (email, password, done) => {
-        const us = await login.findOne({ email: email });
+        const us = await login.findByPk(email);
+        console.log(password, us.login_pwd);
         if (!us) return done(null, false);
         if (us.login_pwd !== password) return done(null, false);
 
@@ -20,6 +21,7 @@ exports.initializePassport = (passport) => {
   );
 
   passport.serializeUser((user, done) => {
+    console.log("success");
     done(null, user.login_id);
   });
 

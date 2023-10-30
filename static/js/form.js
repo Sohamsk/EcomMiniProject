@@ -14,13 +14,9 @@ document.querySelector(".p680").addEventListener("click", async (e) => {
       "content-type": "application/json; charset=UTF-8",
     },
   });
-  let resp = await result.json();
-  if (resp.status === 1) {
-    alert("Order Failed only one order per email id");
-  } else if (resp.status === 0) {
-    {
-      document.querySelector(".p680").disabled = true;
-      alert("Order Successfull");
-    }
+  if (result.status === 201) {
+    location.replace("/");
+  } else {
+    alert("we have a problem");
   }
 });
