@@ -13,3 +13,14 @@ This project is made to be run on nodejs with npm package manager to run follow 
 
 Before doing this first setup a Postgresql server on your system and if necessary make the required tables seeing the models from the models folder.  
 Refer: https://sequelize.org/docs/v6/
+
+## Database
+
+The database used in this project is postgres so set it up and make necessary changes to the connection URI in
+
+```
+.\models\connection.js
+```
+
+The structure is  
+![Database Structure](./schema.png)

@@ -7,12 +7,9 @@ async function placeOrder(req, res) {
     const prod = await product.findByPk(req.params.prod);
     const dt = new Date();
 
-    // console.log(prod);
     if (!prod) {
       throw error;
     }
-
-    console.log(req.user);
 
     const id = nanoid.nanoid(15);
     await order.create({
